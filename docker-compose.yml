@@ -1,0 +1,18 @@
+# SuperChat -> Chatwoot migration tool - pure CLI batch app.
+#
+# PORTS: this app exposes NO ports. It runs, does its work and exits, so it
+# cannot collide with any running container.
+#
+# The whole project dir is mounted to /app, so raw/, out/ and state.json appear
+# directly in the project folder. (Mounting the dir avoids the "Docker creates
+# an empty directory for a missing single-file mount" problem.)
+
+services:
+  app:
+    build: .
+    image: superchat-migration:local
+    env_file: .env
+    working_dir: /app
+    volumes:
+      - .:/app
+    # no ports, no restart policy: one-shot batch tool

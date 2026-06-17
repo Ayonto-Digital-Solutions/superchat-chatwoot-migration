@@ -1,0 +1,14 @@
+# secrets & credentials
+.env
+agent-tokens.json
+
+# downloaded + generated data
+raw/
+out/
+state.json
+chatwoot_state.json
+samples/
+
+# python
+__pycache__/
+*.pyc
